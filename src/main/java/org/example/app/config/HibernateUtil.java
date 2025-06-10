@@ -1,8 +1,7 @@
 package org.example.config;
 
-import org.example.enity.Order;
-import org.example.enity.Product;
-import org.hibernate.Session;
+import org.example.entity.Product;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -13,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.Level;
+
 
 
 public class HibernateUtil {
@@ -27,7 +26,6 @@ public class HibernateUtil {
             try {
                 Configuration configuration = getConfiguration();
 
-                configuration.addAnnotatedClass(Order.class);
                 configuration.addAnnotatedClass(Product.class);
 
 
