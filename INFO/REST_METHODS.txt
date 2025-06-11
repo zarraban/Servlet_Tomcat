@@ -1,0 +1,44 @@
+GET
+http://localhost:8080/api1/v1/products
+
+[] - нічого немає
+
+POST
+http://localhost:8080/api1/v1/products
+
+В даному випадку order_id - це номер замовленя( тобто foreign key) але другу таблицю не робив
+
+{
+    "name": "banana",
+    "cost": "12",
+    "order_id": "1"
+}
+
+{
+    "name": "apple",
+    "cost": "10",
+    "order_id": "1"
+}
+
+
+GET
+http://localhost:8080/api1/v1/products
+
+
+PUT
+http://localhost:8080/api1/v1/products/1
+
+{
+    "name": "banana",
+    "cost": "13",
+    "order_id": "1"
+}
+
+GET
+http://localhost:8080/api1/v1/products
+
+DELETE
+http://localhost:8080/api1/v1/products/1
+
+GET
+http://localhost:8080/api1/v1/products
