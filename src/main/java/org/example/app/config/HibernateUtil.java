@@ -1,6 +1,6 @@
-package org.example.config;
+package org.example.app.config;
 
-import org.example.entity.Product;
+import org.example.app.entity.Product;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

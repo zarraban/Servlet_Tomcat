@@ -31,7 +31,9 @@ public class ProductRepositoryImpl implements ProductRepository {
         transaction.commit();
     }catch (Exception e){
         logError(e);
-        Objects.requireNonNull(transaction).rollback();
+        if (transaction != null) {
+            transaction.rollback();
+        }
     }
 
 

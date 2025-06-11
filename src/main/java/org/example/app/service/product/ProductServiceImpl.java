@@ -1,50 +1,51 @@
-package org.example.app.service.user;
+package org.example.app.service.product;
 
-import org.example.app.dto.user.UserDtoRequest;
-import org.example.app.entity.User;
-import org.example.app.repository.user.UserRepository;
-import org.example.app.repository.user.UserRepositoryImpl;
+import org.example.app.entity.Product;
+
+import org.example.app.repository.userImpl.ProductRepository;
+import org.example.app.repository.userImpl.ProductRepositoryImpl;
+import org.example.app.request.RequestProductDTO;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class UserServiceImpl implements UserService {
+public class ProductServiceImpl implements ProductService {
 
-    private UserRepository repository;
+    private ProductRepository repository;
 
     @Override
-    public User create(UserDtoRequest request) {
+    public Product create(RequestProductDTO request) {
         Objects.requireNonNull(request,
                 "Parameter [request] must not be null!");
-        repository = new UserRepositoryImpl();
+        repository = new ProductRepositoryImpl();
         repository.save(request);
         return repository.getLastEntity()
                 .orElse(null);
     }
 
     @Override
-    public List<User> getAll() {
-        repository = new UserRepositoryImpl();
+    public List<Product> getAll() {
+        repository = new ProductRepositoryImpl();
         return repository.getAll()
                 .orElse(Collections.emptyList());
     }
 
-    // ---- Path Params ----------------------
+
 
     @Override
-    public User getById(Long id) {
+    public Product getById(Long id) {
         Objects.requireNonNull(id,
                 "Parameter [id] must not be null!");
-        repository = new UserRepositoryImpl();
+        repository = new ProductRepositoryImpl();
         return repository.getById(id).orElse(null);
     }
 
     @Override
-    public User update(Long id, UserDtoRequest request) {
+    public Product update(Long id, RequestProductDTO request) {
         Objects.requireNonNull(request,
                 "Parameter [request] must not be null!");
-        repository = new UserRepositoryImpl();
+        repository = new ProductRepositoryImpl();
         if (id == null) {
             throw new IllegalArgumentException("Id must be provided!");
         }
@@ -58,7 +59,7 @@ public class UserServiceImpl implements UserService {
     public boolean deleteById(Long id) {
         Objects.requireNonNull(id,
                 "Parameter [id] must not be null!");
-        repository = new UserRepositoryImpl();
+        repository = new ProductRepositoryImpl();
         if (repository.getById(id).isPresent()) {
             repository.deleteById(id);
             return true;
